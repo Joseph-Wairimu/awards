@@ -12,4 +12,9 @@ class Profile(models.Model):
     dateupdated= models.DateField(auto_now_add=True )
 
     def __str__(self):
-        return self.name
+        return self.user.username
+    def save_profile(self):
+        self.save()
+    def delete_profile(self):
+        self.delete()  
+
