@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rate',
     'crispy_forms',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -102,7 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+cloudinary.config(
+  cloud_name = "dxeahbkr4",
+  api_key = "396168366874715",
+  api_secret = "3p_fOBiWkCn1ZZ0C-URaBeJxzDI"
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
