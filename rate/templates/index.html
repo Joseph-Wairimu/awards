@@ -52,8 +52,8 @@
       
             <div class="vl"> 
               
-                <form style="margin-left: 1rem; margin-top: .3rem;" class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form style="margin-left: 1rem; margin-top: .3rem;" class="d-flex" role="search" action="{% url 'search_results' %}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="project">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form></div>
         
@@ -101,6 +101,7 @@
             
                 <img src="{{news_item.image.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
+                    <h5 class="card-title"> <span style="color: black; font-weight: bold;">Title~</span>{{news_item.title}}</h5>
                     <h5 class="card-title"> <span style="color: black; font-weight: bold;">Name~</span>{{news_item.user}}</h5>
                     <p class="card-text"> <span style="color: black; font-weight: bold;">Description~</span>{{news_item.description}}</p>
                     <p class="card-text"> <span style="color: black; font-weight: bold;" >Date~</span> {{news_item.dateupdated}}</p>

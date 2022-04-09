@@ -15,4 +15,11 @@ class RegisterForm(UserCreationForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['user','image','job_title','bio']        
+        fields = ['image','job_title','bio']        
+
+class UserRequestForm(UserCreationForm):
+   
+    class Meta:
+        model= User
+        exclude = ["email","password1","password2"]
+        fields=["username"]
