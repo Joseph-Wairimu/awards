@@ -29,7 +29,7 @@
     
     
     <h2 class="text-center">Add Profile</h2>
-    <form  class="me" action="{%url 'new-post'%}" method="post" enctype="multipart/form-data">
+    <form  class="me" action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
         {%csrf_token%}
     
         {% bootstrap_form form%}

@@ -18,3 +18,13 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()  
 
+    def update_bio(self,bio):
+        self.bio = bio
+        self.save()
+    def update_job_title(self,job_title):
+        self.job_title = job_title
+        self.save()    
+    def update_image(self,image):
+        self.image = image
+        self.save()        
+
