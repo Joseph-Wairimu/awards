@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rate',
     'crispy_forms',
-    'cloudinary'
+    'cloudinary',
+    'django_bootstrap_icons'
 ]
 
 MIDDLEWARE = [
