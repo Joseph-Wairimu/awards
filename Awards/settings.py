@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'rate',
     'crispy_forms',
     'cloudinary',
-    'django_bootstrap_icons'
+    'django_bootstrap_icons',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
