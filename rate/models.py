@@ -24,8 +24,7 @@ class Project(models.Model):
     image = CloudinaryField('image')
     description = models.TextField(max_length=255)
     link =models.URLField(max_length=200)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='projects')
+    user = models.ForeignKey('auth.user',on_delete=models.CASCADE,related_name='user')
     dateupdated= models.DateField(auto_now_add=True )
 
     def __str__(self):

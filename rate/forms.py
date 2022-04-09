@@ -28,4 +28,5 @@ class UserRequestForm(UserCreationForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
+        exclude = ["profile"]
         fields = ["title","image","description","link"]
