@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
+from .models import  Profile
 # Create your views here.
 
 def index(request):
@@ -18,3 +19,12 @@ def register(response):
     else:
         form = RegisterForm()
     return render(response, 'register/register.html', {'form': form})
+
+def profile(request):
+    current_user = request.user
+    profile = Profile.objects.filter(user=current_user).first()
+    context = {
+        'profile': profile
+    }
+    return render(request, 'profile.html', context)
+    
