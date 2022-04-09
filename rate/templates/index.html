@@ -80,24 +80,17 @@
       
       <section class="site">
 
-        {% for  project in  projects %}
+       
 
-        
+    <div class="card-row">
+       
 
-        <p class="card-text"> <span style="color: black; font-weight: bold;">Caption~</span>{{project.description}}</p>
-        <p class="card-text"> <span style="color: black; font-weight: bold;" >Date~</span> {{news_item.user}}</p>
-        <p class="card-text"> <span style="color: black; font-weight: bold;" >Author~</span> {{news_item.author}}</p>
 
-        {% empty %}
-        <div class="row">
-            <h2 style="color:black; margin-top: 2rem;" class="text-center">There No Project Items</h2>
-          </div>
-        {% endfor %}
       </section>
 
 
 
-<section style="height: 40rem;">
+<section style="height: auto;">
    
 
 
@@ -184,8 +177,10 @@
             height: 3rem;
         }
         .site{
+
           
             background-image: url("/rate/static/assets/award.jpg");
+         
             height: 27rem;
             background-repeat: repeat;
             background-size: cover;
