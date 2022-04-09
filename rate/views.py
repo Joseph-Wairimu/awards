@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm, ProfileUpdateForm
+from .forms import RegisterForm, ProfileUpdateForm,  ProjectForm
 from .models import  Profile, Project
 # Create your views here.
 
@@ -65,3 +65,19 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+
+def create_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form =ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+           project = form.save(commit=False)
+           project.user = current_user
+           project.save()
+        return redirect('index')
+
+    else:
+        form = ProjectForm()
+    return render(request, 'create_project.html', {"form": form}) 
