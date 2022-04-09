@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rate',
+    'rate.apps.RateConfig',
     'crispy_forms',
     'cloudinary',
     'django_bootstrap_icons',

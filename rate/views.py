@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, ProfileUpdateForm,  ProjectForm
 from .models import  Profile, Project
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -67,7 +68,7 @@ def search_results(request):
         return render(request, 'search.html',{"message":message})
 
 
-
+@login_required(login_url='login')  
 def create_project(request):
     current_user = request.user
     if request.method == 'POST':

@@ -23,5 +23,5 @@ urlpatterns = [
     path('', include('rate.urls')),
     path('register/', v.register, name='register'),
     path('',include('django.contrib.auth.urls')),
-
+   
 ]
