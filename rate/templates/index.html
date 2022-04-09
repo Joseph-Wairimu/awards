@@ -80,14 +80,67 @@
       
       <section class="site">
 
- 
+        {% for  project in  projects %}
 
+        
 
+        <p class="card-text"> <span style="color: black; font-weight: bold;">Caption~</span>{{project.description}}</p>
+        <p class="card-text"> <span style="color: black; font-weight: bold;" >Date~</span> {{news_item.user}}</p>
+        <p class="card-text"> <span style="color: black; font-weight: bold;" >Author~</span> {{news_item.author}}</p>
+
+        {% empty %}
+        <div class="row">
+            <h2 style="color:black; margin-top: 2rem;" class="text-center">There No Project Items</h2>
+          </div>
+        {% endfor %}
       </section>
 
 
 
+<section style="height: 40rem;">
+   
 
+
+    <div class="card-row">
+        {% for news_item in projects %}
+        
+            <div class="card">
+            
+                <img src="{{news_item.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> <span style="color: black; font-weight: bold;">Name~</span>{{news_item.user}}</h5>
+                    <p class="card-text"> <span style="color: black; font-weight: bold;">Caption~</span>{{news_item.description}}</p>
+                    <p class="card-text"> <span style="color: black; font-weight: bold;" >Date~</span> {{news_item.date_uploaded}}</p>
+                    <p class="card-text"> <span style="color: black; font-weight: bold;" >Author~</span> {{news_item.author}}</p>
+                    <div class="content" id="content">
+        
+                       
+                      
+                        
+                        
+        
+                      </div>
+                      <a href="{{news_item.image.url}}" class="btn btn-primary">Image link</a>
+                      
+                    
+                  
+                   
+                    </div>
+            </div>
+        
+        
+        {% empty %}
+        <div class="row">
+            <h2 style="color: aliceblue; margin-top: 2rem;" class="text-center">There No Gallery Items</h2>
+          </div>
+        {% endfor %}
+        </div>
+        
+       
+
+
+
+</section>
 
 
 
@@ -101,6 +154,17 @@
 
         <style>
 
+        .card-row{
+            width: auto;  
+        display: flex;
+        flex-wrap: wrap;
+        }
+        .card{
+     margin: 0 1rem;
+     width: auto;
+     max-width: 22rem;
+     margin-top: 2rem;
+ }
 
             .one{
 

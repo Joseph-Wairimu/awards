@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, ProfileUpdateForm
-from .models import  Profile
+from .models import  Profile, Project
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    projects= Project.objects.all()
+   
+    return render(request, 'index.html',{'projects': projects[::-1]})
+  
 
 
 def register(response):
@@ -47,3 +50,4 @@ def edit_profile(request):
    else:
             form = ProfileUpdateForm()
    return render(request, 'edit_profile.html', {"form": form, "user": user, "bio": bio, "image": image , "job_title": job_title})
+
