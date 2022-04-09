@@ -18,13 +18,21 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()  
 
-    def update_bio(self,bio):
-        self.bio = bio
+
+class Project(models.Model):
+    title = models.CharField(max_length=255)
+    image = CloudinaryField('image')
+    description = models.TextField(max_length=255)
+    link =models.URLField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='projects')
+    dateupdated= models.DateField(auto_now_add=True )
+
+    def __str__(self):
+        return self.title
+    def save_project(self):
         self.save()
-    def update_job_title(self,job_title):
-        self.job_title = job_title
-        self.save()    
-    def update_image(self,image):
-        self.image = image
-        self.save()        
+    def delete_project(self):
+        self.delete()
+    
 
