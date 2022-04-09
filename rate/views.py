@@ -22,9 +22,9 @@ def register(response):
 
 def profile(request):
     current_user = request.user
-    profile = Profile.objects.filter(user=current_user).first()
+    profile = Profile.objects.filter(user=current_user)
     context = {
         'profile': profile
     }
     return render(request, 'profile.html', context)
-    
+   

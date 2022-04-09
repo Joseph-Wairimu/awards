@@ -47,12 +47,12 @@
                 </div>
             
         </section>
-        <hr>
+        
         <section class="d-flex onee">
       
             <div class="vl"> 
               
-                <form style="margin-left: 1rem;" class="d-flex">
+                <form style="margin-left: 1rem; margin-top: .3rem;" class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form></div>
@@ -63,7 +63,7 @@
             <div class="d-flex">
 
     {% if user.is_authenticated %}
-    <h6 style="margin-top: 1rem;"><a style="color: black; font-weight: 400;" href="/logout">PROFILE</a> 
+    <h6 style="margin-top: 1rem;"><a style="color: black; font-weight: 400;" href="{%url 'profile'%}">PROFILE</a> 
 
     <h6 style="margin-top: 1rem; margin-left: 1rem;"><a style="color: black; font-weight: 400;" href="/logout">LOGOUT</a> 
   
@@ -114,7 +114,7 @@
                 justify-content: space-between;
                 padding:0 1.5rem;
                 margin-top: 0;
-            
+                 border-top: solid rgb(128, 120, 120);
             
                 
             }
