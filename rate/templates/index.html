@@ -49,8 +49,10 @@
         </section>
         <hr>
         <section class="d-flex onee">
-        
-            <div class="vl">   <form style="margin-left: 1rem;" class="d-flex">
+      
+            <div class="vl"> 
+              
+                <form style="margin-left: 1rem;" class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form></div>
@@ -59,7 +61,15 @@
                 awwards.
             </h3>
             <div class="d-flex">
-                <h6 style="margin-top: 1rem;"><a style="color: black; font-weight: 400;" href="/login">REGISTER/LOGIN</a> 
+
+    {% if user.is_authenticated %}
+    <h6 style="margin-top: 1rem;"><a style="color: black; font-weight: 400;" href="/logout">LOGOUT</a> 
+  
+  {% else %}
+
+  <h6 style="margin-top: 1rem;"><a style="color: black; font-weight: 400;" href="/login">REGISTER/LOGIN</a> 
+  {% endif %}
+               
         
                 </h6>
                 <button style="background-color: black;color: white; margin-left: 1rem; ">SUBMIT YOUR SITE!</button>
@@ -68,13 +78,13 @@
       
       <section class="site">
 
-
+      <img src="/rate/static/assets/award.jpg" alt="">
 
 
       </section>
 
 
-<img src="" alt="">
+
 
 
 
@@ -115,8 +125,9 @@
             height: 3rem;
         }
         .site{
-            background-image: url(.static/);
-            
+          
+            background-color: #D18CE0;
+            height: 27rem;
         }
 </style>
 </div>
