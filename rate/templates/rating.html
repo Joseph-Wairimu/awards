@@ -22,18 +22,12 @@
 
     <h1 class="text-center" style="color: aliceblue;">Rate this project</h1>
 
-    <div class="container-fluid all">
+    <div class="container-fluid">
      
-    <form  class="mee" action="" method="post" enctype="multipart/form-data">
-        {%csrf_token%}
-    
-        {% bootstrap_form form%}
-        <input type="submit" class="btn btn-success btn-lg" value="Post">
-      </form>
-      
+        <div class="all">
       {% if project %}
 
-    
+      <div>
       <div class="col-md-6 col-lg-3 col-12 col-sm-12 me">
           <div class="row m-1 mb-3">
               <div class="card  ">
@@ -54,24 +48,32 @@
       
       </div>
       {% if rating %}
-     {% for rating in rating %}
-     <div>
-         <h1>project rating</h1>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Design:</span>{{rating.design}}</p>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">usability:</span>{{rating.usability}}</p>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Content:</span>{{rating.design}}</p>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Developer:</span>{{rating.developer}}</p>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Creativity:</span>{{rating.creativity}}</p>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Review:</span>{{rating.review}}</p>
-        <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Average:</span>{{rating.average}}</p>
-     </div>
-     
-      {% endfor %}
-      {% endif %}
+      {% for rating in rating %}
+      <div class="rates">
+          <h1 style="color: rgb(0, 0, 0);">project ratings</h1>
+         <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Design:</span>{{rating.design}}</p>
+         <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">usability:</span>{{rating.usability}}</p>
+         <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Content:</span>{{rating.design}}</p>
+         <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Developer:</span>{{rating.developer}}</p>
+         <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Creativity:</span>{{rating.creativity}}</p>
+         <p class="card-text"> <span style="color: rgb(255, 254, 254); font-weight: bold;">Review:</span>{{rating.review}}</p>
     
+      </div>
+      
+       {% endfor %}
+       {% endif %}
+    </div>  
       {%endif%}
-     
+   
+      <form  class="mee" action="" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+    
+        {% bootstrap_form form%}
+        <input type="submit" class="btn btn-success btn-lg" value="Post">
+      </form>
+  </div>
     </div>
+   
     <style>
         .all{
             display: flex;
@@ -110,7 +112,7 @@
     .all{color: aliceblue;}
     .me{
         width: auto;
-        max-width:60rem ;
+        max-width:23rem ;
       
              height: auto;
                 margin: auto;
@@ -140,6 +142,7 @@
     </style>
 
    {% block scripts %}
+   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %} {% endblock %}
 

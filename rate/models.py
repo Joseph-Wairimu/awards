@@ -72,3 +72,11 @@ class Rating(models.Model):
         self.save()
     def delete_rating(self):
         self.delete()        
+    def average_rating(self):
+        design = self.design
+        usability = self.usability
+        content = self.content
+        developer = self.developer
+        creativity = self.creativity
+        average = (design + usability + content + developer + creativity)/5
+        return average    
