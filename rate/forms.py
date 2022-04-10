@@ -30,9 +30,9 @@ class ProjectForm(forms.ModelForm):
         model = Project
         exclude = ["profile"]
         fields = ["title","image","description","link"]
-        
+
 class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
-        exclude = ["project","user"]
+        exclude = ["project","author"]
         fields = ["design","usability","content","average"]

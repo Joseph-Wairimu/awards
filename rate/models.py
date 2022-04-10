@@ -48,7 +48,7 @@ class Rating(models.Model):
     content = models.IntegerField(default=0)
     average = models.IntegerField(default=0)
     project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='project')
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user')
+    author= models.ForeignKey(User,on_delete=models.CASCADE,related_name='author')
     dateupdated= models.DateField(auto_now_add=True )
 
     def __str__(self):
