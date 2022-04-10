@@ -25,6 +25,7 @@ def register(response):
         form = RegisterForm()
     return render(response, 'register/register.html', {'form': form})
 
+@login_required(login_url='login') 
 def profile(request):
     current_user = request.user
     profile = Profile.objects.filter(user=current_user)
@@ -35,6 +36,7 @@ def profile(request):
 
 
 
+@login_required(login_url='login') 
 def edit_profile(request):
     current_user = request.user
     if request.method == 'POST':
@@ -50,6 +52,7 @@ def edit_profile(request):
 
 
 
+@login_required(login_url='login') 
 def search_results(request):
     if 'project' in request.GET and request.GET["project"]:
         search_term = request.GET.get("project")
@@ -79,9 +82,11 @@ def create_project(request):
     return render(request, 'create_project.html', {"form": form}) 
 
 
+@login_required(login_url='login') 
 def rate_project(request,id):
     current_user = request.user
     project = Project.objects.get(id=id)
+    rating= Rating.objects.filter(project=project,user=current_user)
     if request.method == 'POST':
         form = RatingForm(request.POST)
         if form.is_valid():
@@ -92,4 +97,9 @@ def rate_project(request,id):
         return redirect('index')
     else:
         form = RatingForm()
-    return render(request, 'rating.html', {"form": form, "project": project})
+    return render(request, 'rating.html', {"form": form, "project": project, "rating": rating})
+
+def reviews(request,id):
+    project = Project.objects.get(id=id)
+    ratings = Rating.objects.filter(project=project)
+    return render(request, 'reviews.html', {"project": project, "ratings": ratings})

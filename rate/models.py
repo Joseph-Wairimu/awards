@@ -62,11 +62,12 @@ class Rating(models.Model):
     average = models.IntegerField(default=0 )
     review = models.TextField(max_length=2555,blank=True)
     project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='project')
-    author= models.ForeignKey(User,on_delete=models.CASCADE,related_name='author')
+    user= models.ForeignKey(User,on_delete=models.CASCADE,related_name='project',null=True)
     dateupdated= models.DateField(auto_now_add=True )
 
+
     def __str__(self):
-        return self.project.title
+        return self.project.user.username
     def save_rating(self):
         self.save()
     def delete_rating(self):
