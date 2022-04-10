@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm, ProfileUpdateForm,  ProjectForm
-from .models import  Profile, Project
+from .forms import RegisterForm, ProfileUpdateForm,  ProjectForm,RatingForm
+from .models import  Profile, Project, Rating
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -76,3 +76,19 @@ def create_project(request):
     else:
         form = ProjectForm()
     return render(request, 'create_project.html', {"form": form}) 
+
+
+def rate_project(request, project_id):
+    current_user = request.user
+    project = Project.objects.get(id=project_id)
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.user = current_user
+            rating.project = project
+            rating.save()
+        return redirect('index')
+    else:
+        form = RatingForm()
+    return render(request, 'rating.html', {"form": form})

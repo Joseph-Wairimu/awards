@@ -40,6 +40,8 @@ class Project(models.Model):
         project = cls.objects.filter(title__icontains=search_term)
         return project
 
+
+
 class Rating(models.Model):
     design = models.IntegerField(default=0)
     usability = models.IntegerField(default=0)
