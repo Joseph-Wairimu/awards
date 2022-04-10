@@ -39,3 +39,19 @@ class Project(models.Model):
     def search_by_title(cls,search_term):
         project = cls.objects.filter(title__icontains=search_term)
         return project
+
+class Rating(models.Model):
+    design = models.IntegerField(default=0)
+    usability = models.IntegerField(default=0)
+    content = models.IntegerField(default=0)
+    average = models.IntegerField(default=0)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='project')
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user')
+    dateupdated= models.DateField(auto_now_add=True )
+
+    def __str__(self):
+        return self.project.title
+    def save_rating(self):
+        self.save()
+    def delete_rating(self):
+        self.delete()        

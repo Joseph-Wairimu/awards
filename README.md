@@ -5,7 +5,7 @@
 
 ## Design
 
-![app](rate/static/assets/site.png)
+![app](rate/static/assets/site.png) 
 
 
 ## Description
