@@ -94,7 +94,7 @@ def rate_project(request,id):
             rating.user = current_user
             rating.project = project
             rating.save()
-        return redirect('rate_project/{{news_item.id}}/')
+        return redirect('index')
     else:
         form = RatingForm()
     return render(request, 'rating.html', {"form": form, "project": project, "rating": rating})
