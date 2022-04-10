@@ -35,4 +35,4 @@ class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
         exclude = ["project","author"]
-        fields = ["design","usability","content","average"]
+        fields = ["design","usability","content","developer","review"]

@@ -40,13 +40,27 @@ class Project(models.Model):
         project = cls.objects.filter(title__icontains=search_term)
         return project
 
-
+RATE_CHOICES = [
+(1,'1-Trash'),
+(2,'2-Horrible'),
+(3,'3-Terrible'),
+(4,'4-Bad'),
+(5,'5- ok'),
+(6,'6-Well'),
+(7,'7-Good'),
+(8,'8-Very Good'),
+(9,'9-Excellent'),
+(10,'10-Perfect'),
+]
 
 class Rating(models.Model):
-    design = models.IntegerField(default=0)
-    usability = models.IntegerField(default=0)
-    content = models.IntegerField(default=0)
-    average = models.IntegerField(default=0)
+    design = models.IntegerField(choices = RATE_CHOICES,default=0)
+    usability = models.IntegerField(choices = RATE_CHOICES,default=0)
+    content = models.IntegerField(choices = RATE_CHOICES,default=0)
+    developer=models.IntegerField(choices = RATE_CHOICES,default=0)
+    creativity=models.IntegerField(choices = RATE_CHOICES,default=0)
+    average = models.IntegerField(default=0 )
+    review = models.TextField(max_length=2555,blank=True)
     project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='project')
     author= models.ForeignKey(User,on_delete=models.CASCADE,related_name='author')
     dateupdated= models.DateField(auto_now_add=True )
