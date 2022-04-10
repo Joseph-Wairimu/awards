@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
+    
     projects= Project.objects.all()
    
     return render(request, 'index.html',{'projects': projects[::-1]})
@@ -78,9 +79,9 @@ def create_project(request):
     return render(request, 'create_project.html', {"form": form}) 
 
 
-def rate_project(request, project_id):
+def rate_project(request,id):
     current_user = request.user
-    project = Project.objects.get(id=project_id)
+    project = Project.objects.get(id=id)
     if request.method == 'POST':
         form = RatingForm(request.POST)
         if form.is_valid():
@@ -91,4 +92,4 @@ def rate_project(request, project_id):
         return redirect('index')
     else:
         form = RatingForm()
-    return render(request, 'rating.html', {"form": form})
+    return render(request, 'rating.html', {"form": form, "project": project})

@@ -11,7 +11,7 @@ urlpatterns = [
     path('rate/project_post/',views.create_project,name='new-post'),
     path('register/', views.register, name='register'),
     path('',include('django.contrib.auth.urls')),
-    path('rate_project/<int:id>/',views.rate_project,name='rate_project'),
+    path('rate_project/<id>/',views.rate_project,name='rate_project'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
